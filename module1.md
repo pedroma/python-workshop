@@ -61,7 +61,7 @@ Here we are importing the `sin` function from the `math` module a more verbose w
 Imports and virtual environments
 --------------------------------
 
-
+Python has a particular way of doing imports. Let's take the `from math import sin` line from the example before. Where does the `math` module come from? The `math` module comes from the python standard library. When you try to import something python will try several places starting with the local folder you are on and then going through the `PYTHONPATH` enviroment variable (if you don't know what that is just think of it as a list of folders for python to search through). In this course we'll be installing some third party python packages to access the 
 
 
 Using a text editor to create python scripts
