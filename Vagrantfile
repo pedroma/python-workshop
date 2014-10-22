@@ -1,7 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-Vagrant.configure("2") do |config|
+Vagrant::Config.run do |config|
   config.vm.box = "freebsd84-64bit"
-  config.vm.box_url = "http://dlang.dawg.eu/vagrant/FreeBSD-8.4-amd64.box"
-  config.vm.hostname = "freebsd-workshop"
+  config.vm.box_url = "http://files.wunki.org/freebsd-10.0-amd64-wunki.box"
 end
