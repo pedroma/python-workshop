@@ -4,47 +4,47 @@ Module 1 - Introduction
 The Python Programming Language
 -------------------------------
 
-Python was created by Guido Van Rossum in the Netherlands. The language itself was created to be as simple as possible to read. The Python philosophy is summarised in the Zen of Python, a collection of guidelines that every Python core developer follows and every Python programmer should follow (there is more to the Zen but I just show the most important ones for a beginner).
+Python was created by Guido Van Rossum in the Netherlands. The language itself was created to be as simple as possible to read an use. The Python philosophy is summarised in the Zen of Python, a collection of guidelines that every Python core developer follows and every Python programmer should follow (there is more to the Zen but I just show the most important ones for a beginner).
 
-```
-The Zen of Python, by Tim Peters
+**TODO**: bigger introduction, check out other online workshops to see what they talk about
+**TODO**: is the Zen of Python that important? maybe just mention two lines to try and sum up the language's phylosofy
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-```
+    The Zen of Python, by Tim Peters
 
-Python is a language that is gaining a lot of popularity lately because of its ease of use and its “batteries included” philosophy. These batteries mean that any Python installation comes with a very powerful set of features, for example, http connectors. sqlite (a relational database), csv readers amongst many other.
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    Flat is better than nested.
+    Readability counts.
+    Special cases aren't special enough to break the rules.
+    Although practicality beats purity.
+    Errors should never pass silently.
+    Unless explicitly silenced.
+    If the implementation is hard to explain, it's a bad idea.
+    If the implementation is easy to explain, it may be a good idea.
 
-This “batteries included” approach is one of the things that makes the language very powerful because any python installation has most of the day to day things needed.
+Python is a language that is gaining a lot of [popularity as a learning language](http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext) because of its ease of use and its “batteries included” philosophy. These batteries mean that any Python standard distribution comes with a very powerful set of libraries to help overcome common simple problem. For example, http connectors, sqlite (a relational database), csv readers, a simple http server (actually called `SimpleHTTPServer`) amongst many other.
 
-**TODO: Mention python versions and set the one we are going to use**
+The current version of Python is 3.4. But for this workshop we'll use version 2.7 which is in FreeBSD's repositories. Everything we do here also applies to python 3.4.
 
-Python is a very well documented language. You can check the [official documentation](https://docs.python.org/VERSION) that has every information you will need and it also has many tutorials you can try out.
+Python is a very well documented language. You can check the [official documentation](https://docs.python.org/2.7) that has every information you will need and also many tutorials you can try out.
 
 Python as an interpreted language
 ---------------------------------
 
-As mentioned before for this workshop we’ll be using Python X.X. To install Python on a FreeBSD machine type on the console as root:
+As mentioned before for this workshop we’ll be using Python 2.7. To install Python on a FreeBSD machine type on the console as root:
 
     $ pkg install python
 
-After installing python you’ll have access to its interpreter. Just type `python` on a console terminal and you’ll get a python shell.
+After installing python you’ll have access to the interpreter. Just type `python` on a console terminal and you’ll get a python shell.
 
-This shell is your interface to python. Let’s try printing something back:
+This shell is your interface to python, with it you can do anything that python can do. Let’s try printing something back:
 
     >>> print "Hello World"
     Hello World
-
+    
+As a side note: if you see print being used with parentheses, like `print("hello")` don't worry, it also works but only in version before 3.0.
 This python shell is called the interpreter. In this shell you can do anything with python. Let's try a more advanced example. Open a python shell (just type `python` in the terminal) and try the following commands.
 
     >>> print "1 + 1 is", 1 + 1
@@ -56,12 +56,12 @@ As you can see python also does simple math operations as you would expect. Let'
     >>> sin(1)
     0.8414709848078965
     
-Here we are importing the `sin` function from the `math` module a more verbose way of reading the import line could be: from the math module import the sin function.
+Here we are importing the `sin` function from the `math` module. A more verbose way of reading the import line could be: from the `math` module import the `sin` function.
 
 Imports and virtual environments
 --------------------------------
 
-Python has a particular way of doing imports. Let's take the `from math import sin` line from the example before. Where does the `math` module come from? The `math` module comes from the python standard library. When you try to import something python will try several places starting with the local folder you are on and then going through the `PYTHONPATH` enviroment variable (if you don't know what that is just think of it as a list of folders for python to search through). In this course we'll be installing some third party python packages and we'll be using a python package installation tool called `pip`. By default this tool installs the packages system wide. This means that any one that opens a python shell. This would lead to problem down the line because you are only allowed one version of each package in your system and if 2 users needed 2 different version this wouldn't work.
+Python has a particular way of doing imports. Let's take the `from math import sin` line from the example before. Where does the `math` module come from? The `math` module comes from the python standard library. When you try to import something python will try several places starting with the local folder you are on and then going through the `PYTHONPATH` enviroment variable (if you don't know what that is just think of it as a list of folders for python to search through). In this course we'll be installing some third party python packages and we'll be using a python package installation tool called `pip`. By default this tool installs the packages system wide. This means that anyone that opens a python shell would have the package available, which might not seen like a bad thing but there are some drawbacks. This would lead to problem down the line because you are only allowed one version of each package in your system and if 2 users needed 2 different version this wouldn't work.
 
 This is where virtual environments come in. Basically we are going to be creating an environment per project we do. This way we'll be able to install everything we need whithout interfering with the system. Let's get started.
 
