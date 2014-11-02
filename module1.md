@@ -4,12 +4,7 @@ Module 1 - Introduction
 The Python Programming Language
 -------------------------------
 
-Python was created by Guido Van Rossum in the Netherlands. The language itself was created to be as simple as possible to read an use. The Python philosophy is summarised in the Zen of Python, a collection of guidelines that every Python core developer follows and every Python programmer should follow (there is more to the Zen but I just show the most important ones for a beginner).
-
-**TODO**: bigger introduction, check out other online workshops to see what they talk about
-**TODO**: is the Zen of Python that important? maybe just mention two lines to try and sum up the language's phylosofy
-
-    The Zen of Python, by Tim Peters
+Python was created by Guido Van Rossum in the Netherlands. The language itself was created to be as simple as possible to read an use. Guido is still a huge part of Python and he is known in the community as the benevolent dictator for life (BDFL). The Python philosophy is summarised in the [Zen of Python](http://legacy.python.org/dev/peps/pep-0020/), a collection of guidelines that every Python core developer follows and every Python programmer should follow. The most important ones for people starting with Python are:
 
     Beautiful is better than ugly.
     Explicit is better than implicit.
@@ -17,10 +12,6 @@ Python was created by Guido Van Rossum in the Netherlands. The language itself w
     Complex is better than complicated.
     Flat is better than nested.
     Readability counts.
-    Special cases aren't special enough to break the rules.
-    Although practicality beats purity.
-    Errors should never pass silently.
-    Unless explicitly silenced.
     If the implementation is hard to explain, it's a bad idea.
     If the implementation is easy to explain, it may be a good idea.
 
@@ -56,7 +47,9 @@ As you can see python also does simple math operations as you would expect. Let'
     >>> sin(1)
     0.8414709848078965
     
-Here we are importing the `sin` function from the `math` module. A more verbose way of reading the import line could be: from the `math` module import the `sin` function.
+Here we are importing the `sin` function from the `math` module. A more verbose way of reading the import line could be: from the `math` module import the `sin` function. 
+
+Now that you know how to use the shell try running the following line: `import this`. What do you get?
 
 Imports and virtual environments
 --------------------------------
@@ -98,6 +91,13 @@ Try installing the requests package for python. With the virtual environment act
 
 And that's it. The [requests](http://docs.python-requests.org/en/latest/) package is installed and ready to be used. 
 
+Let's test it to make sure it works. Open a python shell and try:
+
+    >>> import requests
+    >>> response = requests.get("https://google.com/")
+    >>> response.content
+
+This piece of code will get the HTML code for `https://google.com/`. The response content will have a lot of javascript too. This particular library is very use full to make requests to API's throughout the internet. For example: if you do a get to `http://ip-api.com/json` it will tell you what your current IP is and where you are. Try it out.
 
 Using a text editor to create python scripts
 --------------------------------------------
@@ -111,19 +111,22 @@ Save the file and run:
     $ python hello.py
     Hello World
 
-This is how easy it is to write script files in python. Let's create a more complex one just to show off some of python. Create a new file called `secondhello.py` and write the following:
+This is how easy it is to write script files in python. Let's create a more complex one just to show off some o f python. Let's use the `requests` library we installed in the previous section. Create a new file called `secondhello.py` and write the following:
 
-    for i in range(10):
-        print "Hello World", i
+    import requests
+    print "What IP do you want to investigate?"
+    ip = rawinput()
+    response = requests.get("http://ip-api.com/json/" + ip)
+    print response.json()
         
-Save the file. Try to predict what the result will be before running it.
+Save the file. Try running the code. It will ask you for some IP, grab [your own](http://whatismyip.com/) and paste it to the script when it asks for it.
 
 Standards and batteries included
 --------------------------------
 
-Python is a standards language. Every feature that is included in python has a [PEP (Python Enhancement Proposals)](http://legacy.python.org/dev/peps/) associated with it. These PEP's are what guides the language when developing new features. Remember the Zen of Python from before? [PEP20](http://legacy.python.org/dev/peps/pep-0020/) defines that. There is one particular PEP which everyone should be familiar with which is [PEP8](http://legacy.python.org/dev/peps/pep-0008/). This PEP defines a standard for python code styling. With this everyone should have the same code style when writing python. This will make everyones code much easier to read and understand. Just keep in mind it exists :)
+Python is a standards language. Every feature that is included in python has a [PEP (Python Enhancement Proposals)](http://legacy.python.org/dev/peps/) associated with it. These PEP's are what guide the language when developing new features. Remember the Zen of Python from before? It is defined in [PEP20](http://legacy.python.org/dev/peps/pep-0020/). There is one particular PEP which everyone should be familiar with which is [PEP8](http://legacy.python.org/dev/peps/pep-0008/). This PEP defines a standard for python code styling. With this everyone should have the same code style when writing python. This will make everyones code much easier to read and understand. It's a very good practice to know and follow this PEP when writing Python.
 
-When python is mentioned as haveing "batteries included" this means that python's standard library has a lot of modules that do some advanced things without having to install anything extra. Some examples of those modules are:
+When Python is mentioned as having "batteries included" this means that Python's standard library has a lot of modules that do some advanced things without having to install anything extra. Some examples of those modules are:
 
 * urllib - this module is used to make HTTP requests
 * csv - module used to read/write csv files
