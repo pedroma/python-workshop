@@ -43,7 +43,7 @@ This python shell is called the interpreter. In this shell you can do anything w
     
 As you can see python also does simple math operations as you would expect. Let's try importing a module so we can use some advanced features.
 
-    >>> from math impor sin
+    >>> from math import sin
     >>> sin(1)
     0.8414709848078965
     
@@ -56,7 +56,7 @@ Imports and virtual environments
 
 Python has a particular way of doing imports. Let's take the `from math import sin` line from the example before. Where does the `math` module come from? The `math` module comes from the python standard library. When you try to import something python will try several places starting with the local folder you are on and then going through the `PYTHONPATH` enviroment variable (if you don't know what that is just think of it as a list of folders for python to search through). In this course we'll be installing some third party python packages and we'll be using a python package installation tool called `pip`. By default this tool installs the packages system wide. This means that anyone that opens a python shell would have the package available, which might not seen like a bad thing but there are some drawbacks. This would lead to problem down the line because you are only allowed one version of each package in your system and if 2 users needed 2 different version this wouldn't work.
 
-This is where virtual environments come in. Basically we are going to be creating an environment per project we do. This way we'll be able to install everything we need whithout interfering with the system. Let's get started.
+This is where virtual environments come in. Basically we are going to be creating an environment per project we do. This way we'll be able to install everything we need without interfering with the system. Let's get started.
 
 First we need to install the virtual environment package. Let's do that using `pkg`.
 
